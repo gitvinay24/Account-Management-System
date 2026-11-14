@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inventory Overview - BusinessManager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#122131",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-tint": "#adc6ff",
+                      "on-surface": "#d4e4fa",
+                      "inverse-on-surface": "#233143",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#ca8100",
+                      "on-tertiary": "#472a00",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-tertiary-fixed": "#2a1700",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-background": "#d4e4fa",
+                      "primary-fixed": "#d8e2ff",
+                      "outline": "#8c909f",
+                      "surface-container-highest": "#273647",
+                      "secondary-container": "#00a572",
+                      "on-primary-container": "#00285d",
+                      "on-secondary-container": "#00311f",
+                      "surface": "#051424",
+                      "on-tertiary-container": "#3e2400",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-secondary": "#003824",
+                      "surface-container-high": "#1c2b3c",
+                      "on-error": "#690005",
+                      "surface-variant": "#273647",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "surface-dim": "#051424",
+                      "primary-container": "#4d8eff",
+                      "tertiary": "#ffb95f",
+                      "background": "#051424",
+                      "inverse-surface": "#d4e4fa",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#c2c6d6",
+                      "on-secondary-fixed-variant": "#005236",
+                      "primary": "#adc6ff",
+                      "on-primary-fixed": "#001a42",
+                      "outline-variant": "#424754",
+                      "secondary": "#4edea3",
+                      "inverse-primary": "#005ac2",
+                      "surface-container-lowest": "#010f1f",
+                      "surface-bright": "#2c3a4c",
+                      "on-secondary-fixed": "#002113",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-primary": "#002e6a",
+                      "surface-container-low": "#0d1c2d",
+                      "error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "container-padding": "24px",
+                      "row-height-dense": "32px",
+                      "row-height-standard": "48px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "title-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col md:flex-row antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar (Mobile) -->
+<header class="md:hidden bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-container-padding h-row-height-standard sticky top-0 z-50">
+<div class="flex items-center gap-2">
+<span class="font-headline-md text-headline-md font-bold text-primary">BusinessManager</span>
+</div>
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-surface-bright transition-colors duration-200 p-1 rounded-full"><span class="material-symbols-outlined">search</span></button>
+<button class="hover:bg-surface-bright transition-colors duration-200 p-1 rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+<img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant object-cover" data-alt="A small circular user profile avatar showing a professional person in a corporate setting, dark background, 100x100 resolution." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlwFa_9s6TsDco13iN2rZI0qQApsA__yis1A6Stz7k-sig3dTCSjzKXsPqYWQLhAh8HKVKPudsgb1fSEDQFPa-ybQtPXIkPE4hkJTvl94wrXWx1jpwHVew50gf4B1MRmUCN1jiclZPtwJf5qlDWsUKjeJGEP8q4GhcCRqIfR3hyIDXrOB2zMoajpRknGnpempfX16PeWZs_C0Dj22WW8KZH5dDj3iuWxa5SAwggno2NpUrX8Gqn5K3"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="hidden md:flex flex-col py-gutter space-y-unit w-[240px] bg-surface-container-low border-r border-outline-variant fixed left-0 top-0 h-full z-40 shrink-0">
+<div class="px-container-padding pb-gutter flex flex-col items-start border-b border-outline-variant/30 mb-2">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container">
+<span class="material-symbols-outlined font-bold text-xl">business_center</span>
+</div>
+<div>
+<h1 class="font-headline-md text-title-sm font-bold text-on-surface leading-tight">Global ERP</h1>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Enterprise Edition</span>
+</div>
+</div>
+</div>
+<div class="flex-1 px-3 space-y-1 overflow-y-auto">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-title-sm text-body-md font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">payments</span>
+<span class="font-title-sm text-body-md font-medium">Sales</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg group" href="#">
+<span class="material-symbols-outlined scale-95 transition-transform">inventory_2</span>
+<span class="font-title-sm text-body-md font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">group</span>
+<span class="font-title-sm text-body-md font-medium">Customers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">local_shipping</span>
+<span class="font-title-sm text-body-md font-medium">Suppliers</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">badge</span>
+<span class="font-title-sm text-body-md font-medium">Employees</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">analytics</span>
+<span class="font-title-sm text-body-md font-medium">Reports</span>
+</a>
+</div>
+<div class="px-3 pt-4 border-t border-outline-variant/30 mt-auto space-y-1 pb-4">
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-title-sm text-body-md font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="font-title-sm text-body-md font-medium">Support</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-[240px] w-full min-w-0 p-container-padding flex flex-col gap-6">
+<!-- Header -->
+<header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="font-display-lg text-display-lg text-on-surface">Inventory Overview</h2>
+<p class="font-body-md text-on-surface-variant mt-1">Manage and track your product stock levels.</p>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg text-on-surface hover:bg-surface-container transition-colors font-title-sm text-body-sm h-10 w-full md:w-auto justify-center">
+<span class="material-symbols-outlined text-[18px]">history</span>
+                    Stock History
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 bg-[#3B82F6] hover:bg-primary-container text-white rounded-lg transition-colors font-title-sm text-body-sm h-10 w-full md:w-auto justify-center shadow-[0_2px_10px_rgba(59,130,246,0.3)]">
+<span class="material-symbols-outlined text-[18px]">add_box</span>
+                    Stock Adjustment
+                </button>
+</div>
+</header>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+<div class="bg-surface-container p-5 rounded-xl border border-white/5 flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Total Products</span>
+<span class="font-headline-md text-display-lg text-on-surface">1,248</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-white/5 flex flex-col justify-between col-span-2 md:col-span-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-2">Total Value (₹)</span>
+<span class="font-data-mono text-display-lg text-primary">₹3.4M</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-white/5 flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-0 right-0 w-16 h-16 bg-error/10 rounded-bl-full -mr-4 -mt-4"></div>
+<span class="font-label-caps text-label-caps text-error mb-2 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span> Low Stock</span>
+<span class="font-headline-md text-headline-md text-on-surface">42</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-white/5 flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-error-container mb-2 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error-container"></span> Out of Stock</span>
+<span class="font-headline-md text-headline-md text-on-surface">12</span>
+</div>
+<div class="bg-surface-container p-5 rounded-xl border border-white/5 flex flex-col justify-between">
+<span class="font-label-caps text-label-caps text-tertiary-fixed-dim mb-2 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span> Expiring Soon</span>
+<span class="font-headline-md text-headline-md text-on-surface">8</span>
+</div>
+</div>
+<!-- Main Data Area -->
+<section class="bg-surface-container rounded-xl border border-white/5 flex-1 flex flex-col overflow-hidden">
+<!-- Toolbar -->
+<div class="p-4 border-b border-outline-variant/30 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface-container-high/50">
+<!-- Tabs -->
+<div class="flex space-x-1 p-1 bg-surface-container-lowest rounded-lg border border-white/5">
+<button class="px-4 py-1.5 rounded-md bg-secondary-container text-on-secondary-container font-title-sm text-body-sm shadow-sm">All</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-colors font-title-sm text-body-sm">In Stock</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-colors font-title-sm text-body-sm flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>Low Stock
+                    </button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface hover:bg-surface-variant/50 transition-colors font-title-sm text-body-sm">Out of Stock</button>
+</div>
+<!-- Search & Filters -->
+<div class="flex items-center gap-3 w-full md:w-auto">
+<div class="relative w-full md:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full bg-background border border-white/10 rounded-lg pl-9 pr-3 py-2 text-body-sm text-on-surface placeholder:text-on-surface-variant/50 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search SKU or Product..." type="text"/>
+</div>
+<button class="p-2 border border-white/10 rounded-lg text-on-surface-variant hover:bg-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant/30">
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant w-12 text-center">
+<input class="rounded border-white/20 bg-background text-primary focus:ring-primary/50 w-4 h-4" type="checkbox"/>
+</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">Product Info</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant">SKU</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">Stock Level</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">Unit Value (₹)</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-right">Total Value (₹)</th>
+<th class="px-4 py-3 font-label-caps text-label-caps text-on-surface-variant text-center">Status</th>
+<th class="px-4 py-3 w-16"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5 font-body-sm">
+<!-- Row 1 (Normal) -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-4 py-3 text-center">
+<input class="rounded border-white/20 bg-background text-primary focus:ring-primary/50 w-4 h-4" type="checkbox"/>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant border border-white/5 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">inventory_2</span>
+</div>
+<div>
+<div class="font-title-sm text-body-sm text-on-surface">Ergonomic Office Chair</div>
+<div class="text-on-surface-variant text-[11px]">Furniture &gt; Seating</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3 font-data-mono text-on-surface-variant">FUR-CH-001</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface">145 <span class="text-on-surface-variant text-[11px]">units</span></td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface-variant">4,500.00</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface">652,500.00</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary/15 text-secondary border border-secondary/20 font-label-caps text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Stock
+                                </span>
+</td>
+<td class="px-4 py-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 2 (Low Stock) -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-4 py-3 text-center">
+<input class="rounded border-white/20 bg-background text-primary focus:ring-primary/50 w-4 h-4" type="checkbox"/>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant border border-white/5 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">inventory_2</span>
+</div>
+<div>
+<div class="font-title-sm text-body-sm text-on-surface">Wireless Mechanical Keyboard</div>
+<div class="text-on-surface-variant text-[11px]">Electronics &gt; Peripherals</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3 font-data-mono text-on-surface-variant">ELE-KB-042</td>
+<td class="px-4 py-3 text-right font-data-mono text-error font-medium">8 <span class="text-error/70 text-[11px]">units</span></td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface-variant">8,200.00</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface">65,600.00</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error/15 text-error border border-error/20 font-label-caps text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Low Stock
+                                </span>
+</td>
+<td class="px-4 py-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 3 (Out of Stock) -->
+<tr class="hover:bg-primary/5 transition-colors group bg-surface-variant/20">
+<td class="px-4 py-3 text-center">
+<input class="rounded border-white/20 bg-background text-primary focus:ring-primary/50 w-4 h-4" type="checkbox"/>
+</td>
+<td class="px-4 py-3 opacity-60">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant border border-white/5 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">inventory_2</span>
+</div>
+<div>
+<div class="font-title-sm text-body-sm text-on-surface">Premium Leather Portfolio</div>
+<div class="text-on-surface-variant text-[11px]">Accessories &gt; Office</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3 font-data-mono text-on-surface-variant opacity-60">ACC-PF-009</td>
+<td class="px-4 py-3 text-right font-data-mono text-error-container font-medium">0 <span class="text-error-container/70 text-[11px]">units</span></td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface-variant opacity-60">2,100.00</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface opacity-60">0.00</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-error-container/15 text-error-container border border-error-container/20 font-label-caps text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-error-container"></span> Out of Stock
+                                </span>
+</td>
+<td class="px-4 py-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+<!-- Row 4 (Normal) -->
+<tr class="hover:bg-primary/5 transition-colors group">
+<td class="px-4 py-3 text-center">
+<input class="rounded border-white/20 bg-background text-primary focus:ring-primary/50 w-4 h-4" type="checkbox"/>
+</td>
+<td class="px-4 py-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface-variant border border-white/5 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">inventory_2</span>
+</div>
+<div>
+<div class="font-title-sm text-body-sm text-on-surface">Standing Desk Converter</div>
+<div class="text-on-surface-variant text-[11px]">Furniture &gt; Desks</div>
+</div>
+</div>
+</td>
+<td class="px-4 py-3 font-data-mono text-on-surface-variant">FUR-DSK-112</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface">56 <span class="text-on-surface-variant text-[11px]">units</span></td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface-variant">12,500.00</td>
+<td class="px-4 py-3 text-right font-data-mono text-on-surface">700,000.00</td>
+<td class="px-4 py-3 text-center">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-secondary/15 text-secondary border border-secondary/20 font-label-caps text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> In Stock
+                                </span>
+</td>
+<td class="px-4 py-3 text-right opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-white/10 transition-colors"><span class="material-symbols-outlined text-[18px]">more_vert</span></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-outline-variant/30 flex items-center justify-between text-on-surface-variant text-body-sm bg-surface-container">
+<div>Showing 1-4 of 1,248 products</div>
+<div class="flex items-center gap-2">
+<button class="p-1 rounded border border-white/10 hover:bg-white/5 transition-colors disabled:opacity-50" disabled=""><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+<button class="p-1 rounded border border-white/10 hover:bg-white/5 transition-colors"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+</div>
+</div>
+</section>
+</main>
+</body></html>

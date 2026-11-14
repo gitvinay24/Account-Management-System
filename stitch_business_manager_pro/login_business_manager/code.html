@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Login - Business Manager</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#122131",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface-tint": "#adc6ff",
+                    "on-surface": "#d4e4fa",
+                    "inverse-on-surface": "#233143",
+                    "primary-fixed-dim": "#adc6ff",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#ca8100",
+                    "on-tertiary": "#472a00",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary-fixed": "#2a1700",
+                    "tertiary-fixed": "#ffddb8",
+                    "on-background": "#d4e4fa",
+                    "primary-fixed": "#d8e2ff",
+                    "outline": "#8c909f",
+                    "surface-container-highest": "#273647",
+                    "secondary-container": "#00a572",
+                    "on-primary-container": "#00285d",
+                    "on-secondary-container": "#00311f",
+                    "surface": "#051424",
+                    "on-tertiary-container": "#3e2400",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-secondary": "#003824",
+                    "surface-container-high": "#1c2b3c",
+                    "on-error": "#690005",
+                    "surface-variant": "#273647",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-dim": "#051424",
+                    "primary-container": "#4d8eff",
+                    "tertiary": "#ffb95f",
+                    "background": "#051424",
+                    "inverse-surface": "#d4e4fa",
+                    "error": "#ffb4ab",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-secondary-fixed-variant": "#005236",
+                    "primary": "#adc6ff",
+                    "on-primary-fixed": "#001a42",
+                    "outline-variant": "#424754",
+                    "secondary": "#4edea3",
+                    "inverse-primary": "#005ac2",
+                    "surface-container-lowest": "#010f1f",
+                    "surface-bright": "#2c3a4c",
+                    "on-secondary-fixed": "#002113",
+                    "on-primary-fixed-variant": "#004395",
+                    "on-primary": "#002e6a",
+                    "surface-container-low": "#0d1c2d",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "4px",
+                    "container-padding": "24px",
+                    "row-height-dense": "32px",
+                    "row-height-standard": "48px",
+                    "gutter": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "title-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "data-mono": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                    "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                    "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                    "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                    "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                    "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background min-h-screen flex items-center justify-center font-body-md antialiased selection:bg-primary selection:text-on-primary">
+<div class="flex w-full min-h-screen">
+<!-- Left Panel: Form Canvas -->
+<div class="w-full lg:w-1/2 flex flex-col justify-center items-center px-container-padding py-12 bg-surface relative z-10">
+<div class="w-full max-w-[420px] flex flex-col space-y-8">
+<!-- Branding & Header -->
+<div class="flex flex-col items-center sm:items-start text-center sm:text-left space-y-6">
+<img alt="Business Manager Logo" class="h-16 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMfC9GK-kECp_mG7xyBsnJzKmk7H-RWkjLu4CVdqFL-SGqMzt__KdLPeuRgz_TZBdg_hQni566N9LX_vQhwwVK7aSSdAZd1aoRMh19HkQnALdhnRifCjs322vcDMOukkpTh0Jo0J9JX_pyrPWTd-xdN7UdemRgAfsikHMxgXWjWh9LpY_mN9AK9JVP8PGJq-TMA4BKUXapLfmv7xS5k_dXsMR5TnpJErlX2bIXktAODFcONN88KOr"/>
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Welcome back</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Enter your credentials to access your workspace.</p>
+</div>
+</div>
+<!-- Login Form -->
+<form class="flex flex-col space-y-6" onsubmit="event.preventDefault();">
+<!-- Email Field -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase" for="email">Email Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" style="font-variation-settings: 'FILL' 0;">mail</span>
+<input class="w-full h-[48px] pl-10 pr-4 bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface font-body-md transition-all duration-200 outline-none placeholder:text-outline-variant" id="email" placeholder="name@company.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col space-y-1.5">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none" style="font-variation-settings: 'FILL' 0;">lock</span>
+<input class="w-full h-[48px] pl-10 pr-10 bg-surface-container-lowest border border-outline-variant rounded focus:border-primary focus:ring-2 focus:ring-primary/20 text-on-surface font-body-md transition-all duration-200 outline-none placeholder:text-outline-variant" id="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant hover:text-on-surface transition-colors focus:outline-none" id="togglePassword" type="button">
+<span class="material-symbols-outlined" id="toggleIcon" style="font-variation-settings: 'FILL' 0;">visibility</span>
+</button>
+</div>
+</div>
+<!-- Options Row -->
+<div class="flex items-center justify-between mt-2">
+<label class="flex items-center space-x-2 cursor-pointer group">
+<input class="form-checkbox w-4 h-4 bg-surface-container-lowest border-outline-variant text-primary rounded focus:ring-primary/20 focus:ring-offset-0 focus:ring-offset-transparent cursor-pointer transition-colors duration-200" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface transition-colors duration-200">Remember me</span>
+</label>
+<a class="font-body-sm text-body-sm text-primary hover:text-primary-fixed transition-colors duration-200 font-medium" href="#">Forgot password?</a>
+</div>
+<!-- Actions -->
+<div class="pt-4 flex flex-col space-y-4">
+<button class="w-full h-[48px] bg-primary text-on-primary font-title-sm text-title-sm rounded hover:bg-primary-fixed hover:-translate-y-[1px] active:translate-y-0 transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg shadow-primary/10" type="submit">
+<span>Login to Workspace</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<div class="text-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Don't have an account? </span>
+<a class="font-body-sm text-body-sm text-primary hover:text-primary-fixed transition-colors duration-200 font-medium" href="#">Create one</a>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- Right Panel: Visual Canvas -->
+<div class="hidden lg:block lg:w-1/2 relative bg-surface-container-low overflow-hidden border-l border-outline-variant/30">
+<!-- Decorative atmospheric background -->
+<div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-screen transition-opacity duration-1000" data-alt="A striking digital installation art piece featuring glowing, generative geometric shapes suspended in a vast, minimalist gallery space. The room is illuminated by high-key, soft blue lighting that creates a deep, modern dark-mode aesthetic. The artwork relies on a sophisticated palette of deep navy blacks and pristine whites, punctuated by intense accents of vibrant electric blue. The mood is serene yet technologically advanced and highly corporate." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNCaiYBwhIlNFMeD3MW5VtBTc-eX1yep2evLRgHOfEg2_YaibrAbN6B5G2ID3WPgJVddIqKjqoxbeAXTlGClKBs9Jt1VInyfZhWR6IxQkzOS8m2s2WrK4R7pfP9R5gJLs5QOrHcZf402KDOwAAFVCVBXbro79PevcR1V3KotQXFfu1Lt9Hp7BMTQ3VFFkPBwVHrMLP3dTBDWiM7rH6xAlvh4mnE9S52by-D1PXepxVUdbrVxpK_bkU')"></div>
+<!-- Gradient Overlay for depth -->
+<div class="absolute inset-0 bg-gradient-to-br from-surface/80 via-surface/40 to-surface-container-low/90"></div>
+<!-- Optional floating elements or branding mark could go here for high-end feel -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl"></div>
+<div class="absolute w-[400px] h-[400px] bg-secondary-container/5 rounded-full blur-3xl translate-x-32 -translate-y-32"></div>
+</div>
+<!-- Content overlay for visual balance -->
+<div class="absolute bottom-12 left-12 right-12 text-on-surface-variant font-body-sm text-body-sm opacity-60">
+<p>Enterprise Edition v4.2.0 • Secure Encrypted Connection</p>
+</div>
+</div>
+</div>
+<!-- Interactive Script for Password Toggle -->
+<script>
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            toggleIcon.textContent = type === 'password' ? 'visibility' : 'visibility_off';
+        });
+    </script>
+</body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Manager - Step 2: Business Information</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#ffddb8",
+                      "surface-tint": "#adc6ff",
+                      "surface-container-highest": "#273647",
+                      "tertiary-container": "#ca8100",
+                      "surface-bright": "#2c3a4c",
+                      "on-secondary-fixed": "#002113",
+                      "outline": "#8c909f",
+                      "surface-container-low": "#0d1c2d",
+                      "secondary-fixed-dim": "#4edea3",
+                      "secondary": "#4edea3",
+                      "surface-container-lowest": "#010f1f",
+                      "surface-container": "#122131",
+                      "primary-fixed": "#d8e2ff",
+                      "error": "#ffb4ab",
+                      "background": "#051424",
+                      "on-secondary": "#003824",
+                      "on-primary-fixed-variant": "#004395",
+                      "outline-variant": "#424754",
+                      "surface-variant": "#273647",
+                      "on-primary-container": "#00285d",
+                      "tertiary": "#ffb95f",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-primary-fixed": "#001a42",
+                      "inverse-primary": "#005ac2",
+                      "error-container": "#93000a",
+                      "on-error": "#690005",
+                      "on-secondary-fixed-variant": "#005236",
+                      "on-primary": "#002e6a",
+                      "on-secondary-container": "#00311f",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-tertiary": "#472a00",
+                      "on-tertiary-fixed": "#2a1700",
+                      "surface-dim": "#051424",
+                      "on-background": "#d4e4fa",
+                      "on-surface": "#d4e4fa",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-surface-variant": "#c2c6d6",
+                      "surface": "#051424",
+                      "inverse-surface": "#d4e4fa",
+                      "on-error-container": "#ffdad6",
+                      "secondary-container": "#00a572",
+                      "on-tertiary-container": "#3e2400",
+                      "primary-container": "#4d8eff",
+                      "inverse-on-surface": "#233143",
+                      "primary": "#adc6ff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "surface-container-high": "#1c2b3c"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-padding": "24px",
+                      "row-height-dense": "32px",
+                      "row-height-standard": "48px",
+                      "unit": "4px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "data-mono": ["JetBrains Mono"],
+                      "body-md": ["Inter"],
+                      "label-caps": ["Inter"],
+                      "title-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "body-sm": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "data-mono": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "title-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 antialiased selection:bg-primary selection:text-on-primary">
+<div class="w-full max-w-[600px] flex flex-col gap-6 my-8">
+<!-- Header -->
+<div class="flex flex-col items-center text-center gap-4">
+<img class="w-16 h-16 object-contain" data-alt="A stylized, modern geometric logo for a business management application. It features a bright blue, rising graph line cutting across a structured square shape, set against a deep navy background. The design is sleek, professional, and suggests growth and data-driven insights. It is lit with a crisp, digital light." src="https://lh3.googleusercontent.com/aida/AEtjO1WapI41K9E0EmGKjwt_sQJBAOr7gEiXj6hwKSbUBbXPmvpZUQQQ7c0Q5EJcL0swVmkklxa0y_0FlChXtt1HF_RJFPOd3oHmJai58Wtoo-FC6huOzG0UT4WQXl4O-YZzXajWYIvfusvPGNHSl810KHZ0GYe7EzaXSITH92BuU-RKWBOZNpkF6ZfoHUz5RLnCwLFhYAuOiXEwxdrtB-mwMFgf-1mLTbKme6U9Vc87QMNWPydER8IDCoLRvNc"/>
+<h1 class="font-display-lg text-display-lg text-on-surface">Business Information</h1>
+</div>
+<!-- Progress Indicator -->
+<div class="flex items-center gap-4 w-full">
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        Step 1
+                    </span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Personal Info</span>
+</div>
+<div class="h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full rounded-full"></div>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-2">
+<div class="flex justify-between items-center px-1">
+<span class="font-label-caps text-label-caps text-primary">Step 2</span>
+<span class="font-label-caps text-label-caps text-primary">Business Info</span>
+</div>
+<div class="h-1 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-full rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Main Card -->
+<div class="bg-surface-container rounded-xl p-8 border border-white/5 shadow-lg shadow-black/50 flex flex-col gap-8">
+<div class="flex flex-col gap-1">
+<h2 class="font-headline-md text-headline-md text-on-surface">Step 2: Business Information</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us about your business to customize your workspace.</p>
+</div>
+<form class="flex flex-col gap-6">
+<!-- Business Name & Category Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="store">store</span>
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-4 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="Acme Retail Store" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Category</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="category">category</span>
+<select class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-10 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer">
+<option disabled="" selected="" value="">Select business category</option>
+<option value="retail">Retail</option>
+<option value="services">Services</option>
+<option value="technology">Technology</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Phone & Email Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Phone</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="phone">phone</span>
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-4 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Email</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="email">email</span>
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-4 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="business@example.com" type="email"/>
+</div>
+</div>
+</div>
+<!-- Address -->
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-[20px]" data-icon="location_on">location_on</span>
+<textarea class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-4 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/50 resize-none" placeholder="Enter your complete business address" rows="3"></textarea>
+</div>
+</div>
+<!-- Tax & Currency Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant flex gap-2">GST / Tax ID <span class="text-on-surface-variant/50">(Optional)</span></label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="description">description</span>
+<input class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-4 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all placeholder:text-on-surface-variant/50" placeholder="Enter GST / Tax ID" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Currency</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]" data-icon="payments">payments</span>
+<select class="w-full bg-surface text-on-surface font-body-md text-body-md pl-10 pr-10 py-3 rounded border border-white/10 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all appearance-none cursor-pointer">
+<option selected="" value="INR">Indian Rupee (₹)</option>
+<option value="USD">US Dollar ($)</option>
+<option value="EUR">Euro (€)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Business Type Selection -->
+<div class="flex flex-col gap-3 mt-2">
+<label class="font-body-sm text-body-sm text-on-surface-variant">Business Type</label>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Selected Card -->
+<div class="bg-primary/10 border-2 border-primary rounded-lg p-4 cursor-pointer hover:bg-primary/20 transition-colors flex gap-3 items-start relative overflow-hidden">
+<div class="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-t-primary border-l-[40px] border-l-transparent"></div>
+<span class="material-symbols-outlined absolute top-1 right-1 text-on-primary text-[14px] z-10" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+<div class="p-2 bg-surface rounded text-primary shrink-0">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-on-surface">Small Business</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Simple tools for shops and independent professionals.</p>
+</div>
+</div>
+<!-- Unselected Card -->
+<div class="bg-surface border-2 border-transparent hover:border-white/10 rounded-lg p-4 cursor-pointer transition-colors flex gap-3 items-start group">
+<div class="p-2 bg-surface-container-high group-hover:bg-surface-variant rounded text-on-surface-variant group-hover:text-on-surface shrink-0 transition-colors">
+<span class="material-symbols-outlined" data-icon="domain">domain</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-title-sm text-title-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Large Business</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors">Advanced tools for growing teams and enterprises.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex gap-4 mt-4 pt-6 border-t border-white/5">
+<button class="px-6 py-3 rounded border border-white/20 text-on-surface hover:bg-white/5 font-title-sm text-title-sm transition-colors cursor-pointer flex-1 md:flex-none text-center" type="button">
+                        Back
+                    </button>
+<button class="px-6 py-3 rounded bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container font-title-sm text-title-sm transition-colors cursor-pointer flex-[2] flex justify-center items-center gap-2" type="button">
+                        Create Business
+                        <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Footer -->
+<div class="text-center font-body-sm text-body-sm text-on-surface-variant px-4">
+            By creating an account, you agree to our <a class="underline hover:text-on-surface transition-colors" href="#">Terms of Service</a> and <a class="underline hover:text-on-surface transition-colors" href="#">Privacy Policy</a>.
+        </div>
+</div>
+<script>
+        // Simple interaction for business type cards
+        const cards = document.querySelectorAll('.grid-cols-1.sm\\:grid-cols-2 > div');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                // Remove selected state from all
+                cards.forEach(c => {
+                    c.className = 'bg-surface border-2 border-transparent hover:border-white/10 rounded-lg p-4 cursor-pointer transition-colors flex gap-3 items-start group';
+                    const iconContainer = c.querySelector('div:first-of-type:not(.absolute)');
+                    if(iconContainer) iconContainer.className = 'p-2 bg-surface-container-high group-hover:bg-surface-variant rounded text-on-surface-variant group-hover:text-on-surface shrink-0 transition-colors';
+                    const h3 = c.querySelector('h3');
+                    if(h3) h3.className = 'font-title-sm text-title-sm text-on-surface-variant group-hover:text-on-surface transition-colors';
+                    const p = c.querySelector('p');
+                    if(p) p.className = 'font-body-sm text-body-sm text-on-surface-variant/70 group-hover:text-on-surface-variant transition-colors';
+                    
+                    // Remove checkmark triangle
+                    const triangle = c.querySelector('.absolute.top-0');
+                    if(triangle) triangle.remove();
+                    const checkIcon = c.querySelector('span[data-icon="check"]');
+                    if(checkIcon) checkIcon.remove();
+                });
+
+                // Add selected state to clicked
+                card.className = 'bg-primary/10 border-2 border-primary rounded-lg p-4 cursor-pointer hover:bg-primary/20 transition-colors flex gap-3 items-start relative overflow-hidden';
+                const iconContainer = card.querySelector('div:first-of-type');
+                iconContainer.className = 'p-2 bg-surface rounded text-primary shrink-0';
+                const h3 = card.querySelector('h3');
+                h3.className = 'font-title-sm text-title-sm text-on-surface';
+                const p = card.querySelector('p');
+                p.className = 'font-body-sm text-body-sm text-on-surface-variant';
+
+                // Add checkmark triangle
+                card.insertAdjacentHTML('afterbegin', `
+                    <div class="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-t-primary border-l-[40px] border-l-transparent"></div>
+                    <span class="material-symbols-outlined absolute top-1 right-1 text-on-primary text-[14px] z-10" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+                `);
+            });
+        });
+    </script>
+</body></html>

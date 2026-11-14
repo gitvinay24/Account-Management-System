@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Management - BusinessManager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container": "#122131",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface-tint": "#adc6ff",
+                      "on-surface": "#d4e4fa",
+                      "inverse-on-surface": "#233143",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-error-container": "#ffdad6",
+                      "tertiary-container": "#ca8100",
+                      "on-tertiary": "#472a00",
+                      "secondary-fixed": "#6ffbbe",
+                      "on-tertiary-fixed": "#2a1700",
+                      "tertiary-fixed": "#ffddb8",
+                      "on-background": "#d4e4fa",
+                      "primary-fixed": "#d8e2ff",
+                      "outline": "#8c909f",
+                      "surface-container-highest": "#273647",
+                      "secondary-container": "#00a572",
+                      "on-primary-container": "#00285d",
+                      "on-secondary-container": "#00311f",
+                      "surface": "#051424",
+                      "on-tertiary-container": "#3e2400",
+                      "secondary-fixed-dim": "#4edea3",
+                      "on-secondary": "#003824",
+                      "surface-container-high": "#1c2b3c",
+                      "on-error": "#690005",
+                      "surface-variant": "#273647",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "surface-dim": "#051424",
+                      "primary-container": "#4d8eff",
+                      "tertiary": "#ffb95f",
+                      "background": "#051424",
+                      "inverse-surface": "#d4e4fa",
+                      "error": "#ffb4ab",
+                      "on-surface-variant": "#c2c6d6",
+                      "on-secondary-fixed-variant": "#005236",
+                      "primary": "#adc6ff",
+                      "on-primary-fixed": "#001a42",
+                      "outline-variant": "#424754",
+                      "secondary": "#4edea3",
+                      "inverse-primary": "#005ac2",
+                      "surface-container-lowest": "#010f1f",
+                      "surface-bright": "#2c3a4c",
+                      "on-secondary-fixed": "#002113",
+                      "on-primary-fixed-variant": "#004395",
+                      "on-primary": "#002e6a",
+                      "surface-container-low": "#0d1c2d",
+                      "error-container": "#93000a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "unit": "4px",
+                      "container-padding": "24px",
+                      "row-height-dense": "32px",
+                      "row-height-standard": "48px",
+                      "gutter": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "body-sm": [
+                              "Inter"
+                      ],
+                      "title-sm": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-sm": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-sm": [
+                              "18px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-caps": [
+                              "11px",
+                              {
+                                      "lineHeight": "16px",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "data-mono": [
+                              "13px",
+                              {
+                                      "lineHeight": "18px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Table Row Hover Effect */
+        .data-table-row:hover {
+            background-color: rgba(59, 130, 246, 0.08); /* Primary Blue tint */
+        }
+      </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased overflow-hidden flex h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-[240px] bg-surface-container-low border-r border-outline-variant flex flex-col py-gutter z-20 transition-transform duration-300 md:translate-x-0 -translate-x-full" id="sidenav">
+<div class="px-gutter mb-6 flex items-center justify-between md:block">
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface">Global ERP</h1>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Enterprise Edition</p>
+</div>
+<button class="md:hidden text-on-surface-variant hover:text-on-surface" id="close-sidenav">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<nav class="flex-1 overflow-y-auto px-unit space-y-unit">
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="dashboard">dashboard</span>
+<span class="font-title-sm text-title-sm">Dashboard</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="payments">payments</span>
+<span class="font-title-sm text-title-sm">Sales</span>
+</a>
+<a class="flex items-center px-3 py-2 bg-secondary-container text-on-secondary-container rounded-lg scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined mr-3 text-on-secondary-container" data-icon="inventory_2">inventory_2</span>
+<span class="font-title-sm text-title-sm">Inventory</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="group">group</span>
+<span class="font-title-sm text-title-sm">Customers</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="local_shipping">local_shipping</span>
+<span class="font-title-sm text-title-sm">Suppliers</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="badge">badge</span>
+<span class="font-title-sm text-title-sm">Employees</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="analytics">analytics</span>
+<span class="font-title-sm text-title-sm">Reports</span>
+</a>
+</nav>
+<div class="mt-auto px-unit pt-4 border-t border-outline-variant space-y-unit">
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="settings">settings</span>
+<span class="font-title-sm text-title-sm">Settings</span>
+</a>
+<a class="flex items-center px-3 py-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg group" href="#">
+<span class="material-symbols-outlined mr-3 text-on-surface-variant group-hover:text-on-surface" data-icon="help">help</span>
+<span class="font-title-sm text-title-sm">Support</span>
+</a>
+<button class="w-full flex items-center px-3 py-2 mt-2 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all duration-150 rounded-lg justify-center border border-outline-variant">
+<span class="font-label-caps text-label-caps">Collapse Menu</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col ml-0 md:ml-[240px] w-full min-h-screen transition-all duration-300 relative z-10">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 bg-surface-container border-b border-outline-variant flex justify-between items-center w-full px-container-padding h-row-height-standard z-30 sticky">
+<div class="flex items-center">
+<button class="md:hidden mr-4 text-primary" id="open-sidenav">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined fill" data-icon="inventory">inventory</span>
+                    BusinessManager
+                </div>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-6">
+<div class="relative w-full">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full bg-surface border border-outline-variant text-on-surface text-body-md rounded-md pl-10 pr-4 py-1.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-bright transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-bright transition-colors duration-200 rounded-full">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+</button>
+<div class="h-6 w-px bg-outline-variant mx-2"></div>
+<button class="flex items-center space-x-1 text-on-surface-variant hover:text-on-surface font-label-caps text-label-caps px-2 py-1 rounded hover:bg-surface-bright transition-colors">
+<span>Branch Selector</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_drop_down">arrow_drop_down</span>
+</button>
+<div class="ml-2 w-8 h-8 rounded-full bg-surface-bright border border-outline-variant overflow-hidden flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate user on a dark background, high resolution, minimalist lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkV27XOx_PGWJGQiv9iKLLBpcqp60kWUopvWyeqwMD30By1z9M9_4qU-IlYk_wHHAhYP8jTKzPO40mITdBz82mQr-CBVvxjMEcPkNVlSkqc1sxnvE4BX55CeaDHVYJ1u33xr_Fx9tk6iHlola2YZgrkg5qeJUzbb5FnUr_nc_okpEvQCgFOLlH2YdOc28t8_LifXI4oDByc_YpR0aJlbLRc83rWXExTPt4bN9ZptU0GA3cdtKTfQGh"/>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<main class="flex-1 overflow-x-hidden overflow-y-auto bg-background p-container-padding">
+<!-- Page Header -->
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+<h2 class="font-display-lg text-display-lg text-on-surface">Products</h2>
+<div class="flex gap-2 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-high rounded transition-colors text-label-caps font-label-caps">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_upload">file_upload</span>
+                        Import
+                    </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2 border border-outline-variant text-on-surface hover:bg-surface-container-high rounded transition-colors text-label-caps font-label-caps">
+<span class="material-symbols-outlined text-[18px]" data-icon="file_download">file_download</span>
+                        Export
+                    </button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white hover:bg-primary/90 rounded transition-colors font-title-sm text-title-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                        Add Product
+                    </button>
+</div>
+</div>
+<!-- Toolbar (Search & Filters) -->
+<div class="bg-surface-container rounded-t-lg border border-outline-variant border-b-0 p-4 flex flex-col md:flex-row gap-4 items-center justify-between">
+<div class="relative w-full md:w-1/3">
+<span class="absolute inset-y-0 left-0 flex items-center pl-3 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</span>
+<input class="w-full bg-surface border border-outline-variant text-on-surface text-body-md rounded-md pl-10 pr-4 py-2 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
+<select class="bg-surface border border-outline-variant text-on-surface text-body-sm rounded-md px-3 py-2 focus:border-primary focus:ring-1 focus:ring-primary appearance-none pr-8 relative min-w-[120px]">
+<option>Category</option>
+<option>Electronics</option>
+<option>Office Supplies</option>
+<option>Furniture</option>
+</select>
+<select class="bg-surface border border-outline-variant text-on-surface text-body-sm rounded-md px-3 py-2 focus:border-primary focus:ring-1 focus:ring-primary appearance-none pr-8 relative min-w-[100px]">
+<option>Brand</option>
+<option>Brand A</option>
+<option>Brand B</option>
+</select>
+<select class="bg-surface border border-outline-variant text-on-surface text-body-sm rounded-md px-3 py-2 focus:border-primary focus:ring-1 focus:ring-primary appearance-none pr-8 relative min-w-[130px]">
+<option>Stock Status</option>
+<option>In Stock</option>
+<option>Low Stock</option>
+<option>Out of Stock</option>
+</select>
+<select class="bg-surface border border-outline-variant text-on-surface text-body-sm rounded-md px-3 py-2 focus:border-primary focus:ring-1 focus:ring-primary appearance-none pr-8 relative min-w-[110px]">
+<option>Supplier</option>
+<option>Supplier X</option>
+<option>Supplier Y</option>
+</select>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-container border border-outline-variant rounded-b-lg overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-high border-b border-outline-variant font-label-caps text-label-caps text-on-surface-variant">
+<tr>
+<th class="px-4 py-3 font-semibold w-12 text-center">
+<input class="rounded border-outline-variant bg-surface text-primary focus:ring-primary/20" type="checkbox"/>
+</th>
+<th class="px-4 py-3 font-semibold">Product ID</th>
+<th class="px-4 py-3 font-semibold">Product</th>
+<th class="px-4 py-3 font-semibold">Category</th>
+<th class="px-4 py-3 font-semibold">Brand</th>
+<th class="px-4 py-3 font-semibold text-right">Purchase Price</th>
+<th class="px-4 py-3 font-semibold text-right">Selling Price</th>
+<th class="px-4 py-3 font-semibold text-right">Stock</th>
+<th class="px-4 py-3 font-semibold text-center">Status</th>
+<th class="px-4 py-3 font-semibold text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-sm text-on-surface divide-y divide-outline-variant">
+<!-- Row 1 -->
+<tr class="data-table-row transition-colors h-row-height-standard">
+<td class="px-4 py-2 text-center">
+<input class="rounded border-outline-variant bg-surface text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="px-4 py-2 font-data-mono text-data-mono text-on-surface-variant">PRD-1024</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A sleek modern ergonomic office chair on a dark minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgzLU52Q2qp8R9z8rPIp9hx6abxINg7NFGAToxxmL9Vmjz5agYctodZjBlUauZ9nnO7oSfvv7V1NgO229FdBSxWJUk-bN3S4keHpMvQQumOD44KgP2Gg8VGzm0Xobv4T7lrc2CCPKq78d8XLf6EGHcDMb9c7iRkZxE1ABPol64slCj_kJ4m4jrldAeo2bwpih0mB8GJD1sBrhH7iiiFn5f1aJYg4s4ysQZzBao47M6_Cqq6tivhToq"/>
+</div>
+<span class="font-medium">ErgoPro Office Chair</span>
+</div>
+</td>
+<td class="px-4 py-2">Furniture</td>
+<td class="px-4 py-2 text-on-surface-variant">Herman Miller</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$450.00</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$899.99</td>
+<td class="px-4 py-2 text-right">
+<div class="font-data-mono text-data-mono">145</div>
+<div class="text-[10px] text-on-surface-variant">Min: 50</div>
+</td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary/15 text-secondary font-label-caps text-[10px]">In Stock</span>
+</td>
+<td class="px-4 py-2">
+<div class="flex items-center justify-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="data-table-row transition-colors h-row-height-standard">
+<td class="px-4 py-2 text-center">
+<input class="rounded border-outline-variant bg-surface text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="px-4 py-2 font-data-mono text-data-mono text-on-surface-variant">PRD-1025</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A high-end ultrawide computer monitor glowing in a dark studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXALQnM75yG3hsibFqxMu7QX8oUngLE-kqpz3wH_8J9dgcKAwZE2r6DAczykvWDClKDRJ2kEIZ8NcWP9i5KTmPMEMVuvATviYhTFh_FtTQ-7CIAE6v5v1o-GofVn2J7rjdnczZCvvN-VPRHOtnpKGyw2b_PNhbRRw2vYdT_rlic5B-ya6z6MHtZNtRyYrLmg-PCNne6aaEXzmFLRUc0Rt0GzzHIandNwlpt6V-_UGYZpjONNKP6eUZ"/>
+</div>
+<span class="font-medium">UltraWide Monitor 34"</span>
+</div>
+</td>
+<td class="px-4 py-2">Electronics</td>
+<td class="px-4 py-2 text-on-surface-variant">LG</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$320.00</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$549.99</td>
+<td class="px-4 py-2 text-right">
+<div class="font-data-mono text-data-mono text-tertiary">12</div>
+<div class="text-[10px] text-on-surface-variant">Min: 20</div>
+</td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-tertiary/15 text-tertiary font-label-caps text-[10px]">Low Stock</span>
+</td>
+<td class="px-4 py-2">
+<div class="flex items-center justify-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="data-table-row transition-colors h-row-height-standard opacity-60">
+<td class="px-4 py-2 text-center">
+<input class="rounded border-outline-variant bg-surface text-primary focus:ring-primary/20" type="checkbox"/>
+</td>
+<td class="px-4 py-2 font-data-mono text-data-mono text-on-surface-variant">PRD-1026</td>
+<td class="px-4 py-2">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-surface border border-outline-variant overflow-hidden flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline" data-icon="image">image</span>
+</div>
+<span class="font-medium">Mechanical Keyboard</span>
+</div>
+</td>
+<td class="px-4 py-2">Electronics</td>
+<td class="px-4 py-2 text-on-surface-variant">Keychron</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$65.00</td>
+<td class="px-4 py-2 text-right font-data-mono text-data-mono">$129.99</td>
+<td class="px-4 py-2 text-right">
+<div class="font-data-mono text-data-mono text-error">0</div>
+<div class="text-[10px] text-on-surface-variant">Min: 15</div>
+</td>
+<td class="px-4 py-2 text-center">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-error/15 text-error font-label-caps text-[10px]">Out of Stock</span>
+</td>
+<td class="px-4 py-2">
+<div class="flex items-center justify-center gap-1">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="visibility">visibility</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-bright text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="p-4 border-t border-outline-variant flex items-center justify-between text-body-sm text-on-surface-variant">
+<div>Showing 1 to 3 of 42 entries</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded border border-outline-variant hover:bg-surface-bright disabled:opacity-50" disabled="">Prev</button>
+<button class="px-2 py-1 rounded bg-primary text-white">1</button>
+<button class="px-2 py-1 rounded border border-outline-variant hover:bg-surface-bright">2</button>
+<button class="px-2 py-1 rounded border border-outline-variant hover:bg-surface-bright">3</button>
+<span class="px-2">...</span>
+<button class="px-2 py-1 rounded border border-outline-variant hover:bg-surface-bright">Next</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Simple mobile menu toggle
+        document.getElementById('open-sidenav')?.addEventListener('click', () => {
+            document.getElementById('sidenav').classList.remove('-translate-x-full');
+        });
+        document.getElementById('close-sidenav')?.addEventListener('click', () => {
+            document.getElementById('sidenav').classList.add('-translate-x-full');
+        });
+    </script>
+</body></html>

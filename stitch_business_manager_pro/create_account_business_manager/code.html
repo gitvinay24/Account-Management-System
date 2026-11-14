@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Manager - Create Account</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#00311f",
+                        "surface-container-low": "#0d1c2d",
+                        "primary-container": "#4d8eff",
+                        "primary-fixed": "#d8e2ff",
+                        "surface-container": "#122131",
+                        "secondary-fixed": "#6ffbbe",
+                        "primary": "#adc6ff",
+                        "on-surface": "#d4e4fa",
+                        "inverse-primary": "#005ac2",
+                        "on-error": "#690005",
+                        "outline": "#8c909f",
+                        "tertiary-container": "#ca8100",
+                        "tertiary": "#ffb95f",
+                        "primary-fixed-dim": "#adc6ff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-dim": "#051424",
+                        "surface-container-high": "#1c2b3c",
+                        "inverse-on-surface": "#233143",
+                        "secondary": "#4edea3",
+                        "surface-container-lowest": "#010f1f",
+                        "on-surface-variant": "#c2c6d6",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-primary-fixed-variant": "#004395",
+                        "surface-tint": "#adc6ff",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary": "#472a00",
+                        "on-secondary": "#003824",
+                        "on-primary-fixed": "#001a42",
+                        "inverse-surface": "#d4e4fa",
+                        "surface-variant": "#273647",
+                        "surface-bright": "#2c3a4c",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-background": "#d4e4fa",
+                        "error": "#ffb4ab",
+                        "outline-variant": "#424754",
+                        "background": "#051424",
+                        "on-secondary-fixed": "#002113",
+                        "on-primary-container": "#00285d",
+                        "on-primary": "#002e6a",
+                        "error-container": "#93000a",
+                        "surface-container-highest": "#273647",
+                        "on-tertiary-container": "#3e2400",
+                        "surface": "#051424",
+                        "secondary-container": "#00a572"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "row-height-standard": "48px",
+                        "row-height-dense": "32px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "container-padding": "24px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "title-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "title-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .input-glow:focus-within {
+            box-shadow: 0 0 0 2px rgba(173, 198, 255, 0.2);
+            border-color: #adc6ff;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(circle at 50% 50%, rgba(173, 198, 255, 0.03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased min-h-screen flex items-center justify-center p-gutter bg-pattern">
+<div class="w-full max-w-[600px] flex flex-col gap-6">
+<!-- Logo Header -->
+<div class="flex flex-col items-center justify-center gap-4 text-center">
+<img alt="Business Manager Logo" class="w-16 h-16 rounded-lg object-contain bg-surface-container-highest/20 p-2 border border-outline-variant/30 shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1WL9kY9sTWIgcf0ZSpv2nIEOX7j1yt9q86T-B-Pyf977Mp6pSpBQYTbr0LCqt31dQy9zwYXNTPrS8lSXoP50d_a1JpaR92hodmc9yx_uKWtXh9Jx3OKvEpRU_YQRIpCbaawczRbO6tr75V2N0TDzgttwLFftGjzY4_lo_1-YLFm3hj5VO3jhlkzpSSfc5v_ZqEV9a-ee7SXlnZVNZvo4MNeya4TvIjP2nc9y_Mku9Fz0RCJqVMAsOu6oy4"/>
+<h1 class="font-headline-md text-headline-md text-on-surface">Create your Account</h1>
+</div>
+<!-- Progress Indicator -->
+<div class="w-full">
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-surface-container-highest z-0"></div>
+<div class="relative z-10 flex flex-col items-center gap-2 w-1/2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-title-sm shadow-sm ring-4 ring-background">
+                        1
+                    </div>
+<span class="font-label-caps text-label-caps text-primary">Personal Info</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-2 w-1/2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-title-sm ring-4 ring-background">
+                        2
+                    </div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Business Info</span>
+</div>
+</div>
+<div class="mt-4 flex justify-between w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-primary rounded-full transition-all duration-300"></div>
+</div>
+</div>
+<!-- Registration Card -->
+<div class="bg-surface-container-low rounded-xl shadow-lg border border-outline-variant/20 p-container-padding">
+<div class="mb-6">
+<h2 class="font-title-sm text-title-sm text-on-surface">Step 1: Personal Information</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Please provide your personal details to get started.</p>
+</div>
+<form class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Full Name -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="fullName">Full Name</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">person</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-4 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="fullName" placeholder="John Doe" type="text"/>
+</div>
+</div>
+<!-- Username -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="username">Username</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">badge</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-10 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="username" placeholder="johndoe" type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-[18px] opacity-0 group-focus-within:opacity-100 transition-opacity">check_circle</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Email -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="email">Email Address</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">mail</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-4 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="email" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<!-- Phone Number -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="phone">Phone Number</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">call</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-4 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4 pt-2 border-t border-outline-variant/20">
+<!-- Password -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="password">Password</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">lock</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-10 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="password" placeholder="••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-outline hover:text-on-surface transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+</div>
+<!-- Strength Indicator -->
+<div class="flex items-center gap-2 mt-1.5">
+<div class="flex-1 flex gap-1 h-1.5">
+<div class="h-full w-full bg-secondary rounded-full"></div>
+<div class="h-full w-full bg-secondary rounded-full"></div>
+<div class="h-full w-full bg-secondary rounded-full"></div>
+<div class="h-full w-full bg-surface-container-highest rounded-full"></div>
+</div>
+<span class="font-data-mono text-[10px] text-secondary uppercase tracking-wider">Strong</span>
+</div>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant" for="confirmPassword">Confirm Password</label>
+<div class="relative group input-glow rounded-DEFAULT transition-all duration-200">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">lock_reset</span>
+<input class="w-full bg-surface border border-outline-variant/30 text-on-surface text-body-md rounded-DEFAULT pl-10 pr-4 py-2 focus:outline-none focus:ring-0 placeholder:text-outline-variant/60 transition-colors" id="confirmPassword" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<div class="pt-6 mt-2 flex flex-col gap-4">
+<button class="w-full bg-[#3B82F6] hover:bg-primary-container text-white font-title-sm text-title-sm py-3 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-sm shadow-[#3B82F6]/20" type="button">
+                        Continue to Business Info
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+<div class="text-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Already have an account? </span>
+<a class="font-body-sm text-body-sm text-primary hover:text-primary-container hover:underline transition-colors" href="#">Login</a>
+</div>
+</div>
+</form>
+</div>
+<!-- Privacy Text -->
+<p class="font-data-mono text-[11px] text-outline-variant text-center px-8">
+            By creating an account, you agree to our <a class="text-outline hover:text-on-surface transition-colors underline" href="#">Terms of Service</a> and <a class="text-outline hover:text-on-surface transition-colors underline" href="#">Privacy Policy</a>.
+        </p>
+</div>
+</body></html>
